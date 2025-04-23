@@ -2,7 +2,6 @@
 
 This project automates AWS billing notifications by sending weekly cost summaries to a Slack channel every Friday. The solution leverages AWS Lambda, EventBridge, Cost Explorer API, and SNS to fetch billing data and relay formatted reports to Slack.
 
-![Architecture Diagram](https://via.placeholder.com/800x400)
 
 ## Table of Contents
 
@@ -17,11 +16,10 @@ This project automates AWS billing notifications by sending weekly cost summarie
   - [5. Configure EventBridge Rule](#5-configure-eventbridge-rule)
 - [Environment Variables](#environment-variables)
 - [IAM Permissions](#iam-permissions)
-- [Message Format](#message-format)
 - [Troubleshooting](#troubleshooting)
 - [Best Practices](#best-practices)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
@@ -222,46 +220,7 @@ The Lambda function requires the following IAM permissions:
 4. **Regularly review and audit permissions** to ensure they remain appropriate
 5. **Consider using AWS Organizations SCPs** to establish permission guardrails
 
-## Message Format
 
-The notification sent to Slack is formatted as follows:
-
-```
-================================================== 
-||          $$$$ AWS COST OPTIMIZATION REPORT $$$$         || 
-==================================================
-
-SUMMARY
-----------------------------------------------------------------
-Billing Period       | 2025-03-01 to 2025-03-14
-Total AWS Cost       | $756.86
-Forecast (Current)   | $3651.09 🔴 (+382.4%)
-----------------------------------------------------------------
-
-**Top AWS Accounts:**
-
-  Account ID    |      Account Name       |  Cost (USD)  |  % of Total  
---------------------------------------------------------------------------
- 309675382277  | farmtoplate devel... | $    360.70 |       47.7%
- 742603043476  | farmtoplate-alpha    | $    360.30 |       47.6%
- 471112655592  | Shared-Services      | $     30.36 |        4.0%
- 850995560996  | F2P-Pilot-Infra      | $      2.71 |        0.4%
- 056810539217  | farmtoplate-root     | $      1.40 |        0.2%
---------------------------------------------------------------------------
-
-**Key Insights:**
-
-METRIC                        | VALUE
-----------------------------------------------------------------
-Highest Spending Account    | 309675382277 - farmtoplate development a...
-                            | $360.70
-Lowest Spending Account     | 344830457020 - Audit
-                            | $0.01
-Highest Cost Service        | Amazon Elastic Compute Cloud - Compute
-                            | $316.50 (41.8% of total)
-Month-over-Month Trend      | 382.4% increase
-----------------------------------------------------------------
-```
 
 ## Troubleshooting
 
@@ -299,6 +258,3 @@ Common issues and their solutions:
 4. Push to the branch: `git push origin feature-name`
 5. Submit a pull request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
